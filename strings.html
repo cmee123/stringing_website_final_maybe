@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="final_styles.css">
+    <script src="email.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_72IB2UYZzZacDY5d0YCyj");
+        })();
+    </script>
+    <title>CathalAndPedro Stringing</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <div class="logo">
+                <div class="menu-wrap">
+                    <input type="checkbox" class="toggler">
+                    <div class="hamburger"><div></div></div>
+                    <div class="menu">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="strings.html">Strings</a></li>
+                                    <li><a href="order.html">Order</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="tournaments.html">Tournaments</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="logo-text large-font">CathalAndPedroStringing@gmail.com</h1>
+                <h1 class="logo-text large-font">651-504-4842</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="strings.html" class="underlined">Strings</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="tournaments.html">Tournaments</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Showcase -->
+    <section class="strings-showcase">
+        <div class="container grid">
+            <div class="strings-showcase-text">
+                <h1 class="large-font">Strings</h1>
+                <p class="change-text">Browse our full collection of strings and select the best one for your game. Hover over or select each string to see more information.</p>
+            </div>
+            <div class="strings-showcase-card card">
+                <h2><b>Want string we don't have in stock?</b></h2>
+                <p>Contact us with the product details, and we will order it as soon as possible. Depending on your choice, prices may be higher and the turnaround time may be slightly longer.</p>
+                <div class="flex">
+                    <div class="blue-outline-button" id="helpBtn" onclick="openHelpDialog()">Contact Us</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="help-dialog" id="helpDialog">
+        <div class="help-dialog-content">
+            <span class="close" onclick="closeHelpDialog()">&times;</span>
+            <div class="help-dialog-header">
+                <h1 class="bolded large-font">How can we help?</h1>
+                <p>Message us with your questions</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="help-dialog-form" id="helpDialogForm">
+                <form id="helpForm">
+                    <div class="grid">
+                        <div class="form-control">
+                            <input class="form-input-field-help help-input" id="firstHelp" type="name" name="first-name" placeholder="First Name" required>
+                        </div>
+                        <div class="form-control">
+                            <input class="form-input-field-help help-input" id="lastHelp" type="name" name="last-name" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="flex">
+                            <input class="form-input-field-help help-input" id="contactHelp" type="contact" name="phone-email" placeholder="Phone/Email" required>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <textarea name="message" id="messageHelp" placeholder="Message" rows="4" cols="35"></textarea>
+                    </div>
+                    <div class="flex">
+                        <div class="solid-blue-button" id="sendBtn" onclick="sendMessage()">Send Message</div>
+                    </div>
+                </form>
+            </div>
+            <div class="sending-screen" id="sendingScreen">
+                <div class="circular">
+                    <div class="inner"></div>
+                    <div class="circle">
+                       <div class="bar left">
+                          <div class="progress"></div>
+                       </div>
+                       <div class="bar right" id="progressBarHelp">
+                          <div class="progress"></div>
+                       </div>
+                     </div>
+                  </div>
+                <p>Sending Message...</p>
+            </div>
+            <div class="finished-screen" id="finishedScreen">
+                <p>Message Sent!</p>
+                <p>We will get back to you as soon as possible.</p>
+                <div class="flex">
+                    <div class="solid-blue-button" id="closeBtn" onclick="closeHelpDialog()">Close</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strings Layout -->
+
+    <section class="strings">
+        <div class="strings-layout grid container">
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/prince-xp.jpg" alt="Prince XP" class="string-img">
+                        </div>
+                        <h1 class="string-name"><b>Prince XP</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Great for players looking to generate lots of power and spin.</p>
+                        <p class="string-disc"><b>Brand:</b> Prince</p>
+                        <p class="string-disc"><b>Type:</b> Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 16</p>
+                        <p class="string-disc"><b>Color:</b> Black</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/prince-xp.jpg" alt="Prince XP" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Prince XP</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc change-text">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc change-text"><b>Power:</b> 0</p>
+                        <p class="string-disc change-text"><b>Spin:</b> 5</p>
+                        <p class="string-disc change-text"><b>Control:</b> 6</p>
+                        <p class="string-disc change-text"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/prince-synthetic-gut.jpg" alt="Prince Synth gut" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Prince Synth</b></h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <hr>
+                        <p class="string-disc">With power and durability, this is a great string for a hybrid racket.</p>
+                        <p class="string-disc"><b>Brand:</b> Prince</p>
+                        <p class="string-disc"><b>Type:</b> Synth Gut</p>
+                        <p class="string-disc"><b>Gauge:</b> 16</p>
+                        <p class="string-disc"><b>Color:</b> Clear/White</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/prince-synthetic-gut.jpg" alt="Prince Synth gut" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Prince Synth</b></h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/proform-tuff.jpg" alt="Proform Tuff" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Proform Tuff</b></h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <hr>
+                        <p class="string-disc">Excellent durability, and great combo with Prince XP in a hybrid racket.</p>
+                        <p class="string-disc"><b>Brand:</b> Gosen</p>
+                        <p class="string-disc"><b>Type:</b> Synth Gut</p>
+                        <p class="string-disc"><b>Gauge:</b> 15L</p>
+                        <p class="string-disc"><b>Color:</b> White</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/proform-tuff.jpg" alt="Proform Tuff" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Proform Tuff</b></h1>
+                        <h2 class="string-type">Synthetic Gut</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Polytour Pro</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Durable string made for big hitters looking for more control and spin.</p>
+                        <p class="string-disc"><b>Brand:</b> Yonnex</p>
+                        <p class="string-disc"><b>Type:</b> Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 16L</p>
+                        <p class="string-disc"><b>Color:</b> Neon Yellow</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/yonnex-polytour-pro.jpg" alt="Polytour Pro" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Polytour Pro</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/head-lynx.jpg" alt="Lynx" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Lynx</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Softer string made to hit heavy topspin while maintaining feel. </p>
+                        <p class="string-disc"><b>Brand:</b> Head</p>
+                        <p class="string-disc"><b>Type:</b> Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 17</p>
+                        <p class="string-disc"><b>Color:</b> Neon Yellow</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/head-lynx.jpg" alt="Lynx" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Lynx</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/wilson-nxt.jpg" alt="NXT" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>NXT</b></h1>
+                        <h2 class="string-type">Multifiliment</h2>
+                        <hr>
+                        <p class="string-disc">Most popular multifiliment ever made, offers comfort and power for all levels.</p>
+                        <p class="string-disc"><b>Brand:</b> Wilson</p>
+                        <p class="string-disc"><b>Type:</b> Multifiliment</p>
+                        <p class="string-disc"><b>Gauge:</b> 16</p>
+                        <p class="string-disc"><b>Color:</b> White</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/wilson-nxt.jpg" alt="NXT" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>NXT</b></h1>
+                        <h2 class="string-type">Multifiliment</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/prince-xc.jpg" alt="Prince XC" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Prince XC</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Great for players looking to generate lots of control, spin, and durability.</p>
+                        <p class="string-disc"><b>Brand:</b> Prince</p>
+                        <p class="string-disc"><b>Type:</b> Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 15L</p>
+                        <p class="string-disc"><b>Color:</b> Yellow</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/prince-xc.jpg" alt="Prince XC" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Prince XC</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/pro-feel.jpg" alt="Pro Feel" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Pro Feel</b></h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Perfect for players looking for comfort, durability, and control.</p>
+                        <p class="string-disc"><b>Brand:</b> Y-Tex</p>
+                        <p class="string-disc"><b>Type:</b> Co-Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 16</p>
+                        <p class="string-disc"><b>Color:</b> Natural</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/pro-feel.jpg" alt="Pro Feel" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Pro Feel</b></h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/pentapower_twisted.jpg" alt="Pentapower" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Pentapower</b></h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Twisted string provides extreme bite, excellent spin, and control.</p>
+                        <p class="string-disc"><b>Brand:</b> Y-Tex</p>
+                        <p class="string-disc"><b>Type:</b> Co-Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 16L</p>
+                        <p class="string-disc"><b>Color:</b> Black</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/pentapower_twisted.jpg" alt="Pentapower" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Pentapower</b></h1>
+                        <h2 class="string-type">Co-Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+            <div class="string-item card">
+                <div class="card-inner">
+                    <div class="front">
+                        <div class="flex">
+                            <img src="Images/polylon.jpg" alt="Polylon" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Polylon</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Must have polyester for big hitters looking to attack the ball.</p>
+                        <p class="string-disc"><b>Brand:</b> Gosen</p>
+                        <p class="string-disc"><b>Type:</b> Polyester</p>
+                        <p class="string-disc"><b>Gauge:</b> 17</p>
+                        <p class="string-disc"><b>Color:</b> Clear/Yellow</p>
+                    </div>
+                    <div class="back">
+                        <div class="flex">
+                            <img src="Images/polylon.jpg" alt="Polylon" class="string-img">
+                        </div>
+                        
+                        <h1 class="string-name"><b>Polylon</b></h1>
+                        <h2 class="string-type">Polyester</h2>
+                        <hr>
+                        <p class="string-disc">Each characteristic is rated on a scale of 1-10, with 10 being the most.</p>
+                        <p class="string-disc"><b>Power:</b> 0</p>
+                        <p class="string-disc"><b>Spin:</b> 5</p>
+                        <p class="string-disc"><b>Control:</b> 6</p>
+                        <p class="string-disc"><b>Durability:</b> 8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1 class="large-font">C & P Stringing</h1>
+                <p>CathalAndPedroStringing@gmail.com</p>
+                <p>651-504-4842</p>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="strings.html">Strings</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="tournaments.html">Tournaments</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </footer>
+    
+</body>
+
+<script>
+
+    // List to hold question form inputs
+
+    function Question(first, last, contact, message) {
+        this.first = first,
+        this.last = last,
+        this.contact = contact,
+        this.message = message
+    }
+
+    function closeErrorHelp() {
+        $("#errorMessageHelp").css("display", "none");
+    }
+
+    // When the user clicks on the button, open the dialog box
+    function openHelpDialog() {
+        $("#helpDialog").css("display", "block");
+    }
+
+    // When the user clicks on <span> (x), close the dialog box
+    function closeHelpDialog() {
+        //Close dialog and reset content to input form
+        $("#helpDialog").css("display", "none");
+        $("#finishedScreen").css("display", "none");
+        $("#sendingScreen").css("display", "none");
+        $("#helpDialogForm").css("display", "block");
+        //Clear the values in the form
+        $("#firstHelp").val("");
+        $("#lastHelp").val("");
+        $("#contactHelp").val("");
+        $("#messageHelp").val("");
+        //Clear borders around the form
+        $("#firstHelp").css("border", "1.5px solid #fff");
+        $("#firstHelp").css("border-bottom", "1.5px solid #b4becb");
+        $("#lastHelp").css("border", "1.5px solid #fff");
+        $("#lastHelp").css("border-bottom", "1.5px solid #b4becb");
+        $("#contactHelp").css("border", "1.5px solid #fff");
+        $("#contactHelp").css("border-bottom", "1.5px solid #b4becb");
+        $("#messageHelp").css("border", "1.5px solid #b4becb");
+    }
+
+    //when user clicks on send message button, change to loading screen
+    function sendMessage() {
+
+        let questionObj = new Question(
+            $("#firstHelp").val(),
+            $("#lastHelp").val(),
+            $("#contactHelp").val(),
+            $("#messageHelp").val()
+        );
+
+        // check if all form sections are filled out
+        for(let property in questionObj) {
+            // if they aren't, raise error message
+            if(questionObj[property] === "") {
+                $("#" + property + "Help").css("border", "1.5px solid rgb(172, 0, 0)");
+                return undefined;
+            }
+            if(property != "message") {
+                $("#" + property + "Help").css("border", "1.5px solid #fff");
+                $("#" + property + "Help").css("border-bottom", "1.5px solid #b4becb");
+            } else {
+                $("#" + property + "Help").css("border", "1.5px solid #b4becb");
+            }
+            
+        }
+
+        //Move dialog content to loading screen
+        $("#errorMessageHelp").css("display", "none");
+        $("#helpDialogForm").css("display", "none");
+        $("#sendingScreen").css("display", "block");
+        //Put code here for emailing form inputs
+        sendMailHelp(questionObj);     
+    }
+
+    //When loading screen is done, change content to sent page
+    $("#progressBarHelp").on("animationend", function() {
+        $("#sendingScreen").css("display", "none");
+        $("#finishedScreen").css("display", "block");
+    })
+
+</script>
+
+</html>
+
+<!--
+
+    Add mystery strings card to page, no dialog 
+
+-->
