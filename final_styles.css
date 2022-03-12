@@ -964,10 +964,6 @@ textarea:focus {
   transform: rotateY(180deg);
 }
 
-.strings .card:hover {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .strings .front,
 .strings .back {
   position: absolute;
@@ -2069,5 +2065,11 @@ textarea:focus {
 @media (max-width: 350px) {
   .navbar h1 {
     font-size: 15px;
+  }
+  .pricing-card {
+    padding: 20px 5px 20px 5px;
+  }
+  .pricing .flex {
+    gap: 10px;
   }
 }
