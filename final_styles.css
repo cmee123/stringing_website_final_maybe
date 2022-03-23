@@ -162,6 +162,8 @@ ul li {
 .form-input-field:focus,
 .form-input-field-help:focus {
   outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border-bottom: 1.5px solid #0041a9;
 }
 
@@ -175,6 +177,8 @@ textarea {
 
 textarea:focus {
   outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border: 1.5px solid #0041a9;
 }
 
